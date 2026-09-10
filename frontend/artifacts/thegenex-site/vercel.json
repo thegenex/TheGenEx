@@ -1,9 +1,0 @@
-{
-  "installCommand": "cd ../.. && pnpm install --frozen-lockfile=false",
-  "buildCommand": "cd ../.. && PORT=5000 BASE_PATH=/ NODE_ENV=production pnpm --filter @workspace/thegenex-site run build",
-  "outputDirectory": "dist/public",
-  "framework": null,
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
-}
