@@ -74,7 +74,7 @@ function AdminLogin({ onSignedIn }: { onSignedIn: (session: { token: string; ema
   };
 
   return <div className="grid min-h-[100dvh] place-items-center bg-[#0a1014] px-5 text-foreground">
-    <div className="w-full max-w-sm rounded-xl border border-foreground/10 bg-[#0d151a] p-8">
+    <div className="w-full max-w-sm rounded-xl border border-foreground/20 bg-[#0d151a] p-8">
       <Link href="/" className="flex items-center gap-2 font-display text-lg font-semibold tracking-[-.04em]" data-testid="link-admin-logo">
         <span className="h-5 w-5 rounded-full border border-primary" /><span>theGenEx<span className="text-primary">.</span></span>
       </Link>
@@ -91,7 +91,7 @@ function AdminLogin({ onSignedIn }: { onSignedIn: (session: { token: string; ema
         ? <form onSubmit={submitEmail} className="mt-6 space-y-4">
             <label className="block text-sm text-muted-foreground">Admin email
               <input required type="email" value={email} onChange={(e) => setEmail(e.target.value)} autoFocus
-                className="mt-2 w-full rounded-md border border-foreground/10 bg-background px-3 py-3 text-foreground outline-none focus:border-primary"
+                className="mt-2 w-full rounded-md border border-foreground/20 bg-background px-3 py-3 text-foreground outline-none focus:border-primary"
                 data-testid="input-admin-email" />
             </label>
             {error && <p className="text-sm text-destructive" role="alert">{error}</p>}
@@ -103,7 +103,7 @@ function AdminLogin({ onSignedIn }: { onSignedIn: (session: { token: string; ema
             {notice && <p className="text-xs text-muted-foreground">{notice}</p>}
             <label className="block text-sm text-muted-foreground">6-digit code
               <input required inputMode="numeric" maxLength={6} value={code} onChange={(e) => setCode(e.target.value.replace(/\D/g, ''))} autoFocus
-                className="mt-2 w-full rounded-md border border-foreground/10 bg-background px-3 py-3 text-center font-mono text-lg tracking-[.3em] text-foreground outline-none focus:border-primary"
+                className="mt-2 w-full rounded-md border border-foreground/20 bg-background px-3 py-3 text-center font-mono text-lg tracking-[.3em] text-foreground outline-none focus:border-primary"
                 data-testid="input-admin-code" />
             </label>
             {error && <p className="text-sm text-destructive" role="alert">{error}</p>}
@@ -130,14 +130,14 @@ function AdminWorkspace({ token, email, onSignOut }: { token: string; email: str
   const show = (message: string) => { setNotice(message); window.setTimeout(() => setNotice(''), 2200); };
 
   return <div className="min-h-[100dvh] bg-[#0a1014] text-foreground">
-    <aside className="fixed inset-y-0 left-0 hidden w-60 border-r border-foreground/10 bg-[#0d151a] p-5 md:block">
+    <aside className="fixed inset-y-0 left-0 hidden w-60 border-r border-foreground/20 bg-[#0d151a] p-5 md:block">
       <Link href="/" className="flex items-center gap-2 font-display text-lg font-semibold tracking-[-.04em]" data-testid="link-admin-logo"><span className="h-5 w-5 rounded-full border border-primary" /><span>theGenEx<span className="text-primary">.</span></span></Link>
       <p className="mt-12 px-2 font-mono text-[9px] uppercase tracking-[.2em] text-muted-foreground">Workspace</p>
       <nav className="mt-3 space-y-1">{side.map(item => { const Icon = item.icon; return <button key={item.label} onClick={() => setActive(item.label)} className={`flex w-full items-center gap-3 rounded-md px-3 py-2.5 text-sm ${active === item.label ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-foreground/5 hover:text-foreground'}`} data-testid={`button-admin-${item.label.toLowerCase()}`}><Icon size={16} />{item.label}</button>; })}</nav>
-      <div className="absolute bottom-5 left-5 right-5 border-t border-foreground/10 pt-4"><button onClick={() => show('Settings live in the Google Sheet Settings tab for now.')} className="flex items-center gap-3 px-3 py-2 text-sm text-muted-foreground" data-testid="button-admin-settings"><Settings2 size={16} />Settings</button><button onClick={onSignOut} className="mt-2 flex w-full items-center gap-3 px-3 py-2 text-sm text-muted-foreground" data-testid="button-admin-signout"><LogOut size={16} />Sign out</button></div>
+      <div className="absolute bottom-5 left-5 right-5 border-t border-foreground/20 pt-4"><button onClick={() => show('Settings live in the Google Sheet Settings tab for now.')} className="flex items-center gap-3 px-3 py-2 text-sm text-muted-foreground" data-testid="button-admin-settings"><Settings2 size={16} />Settings</button><button onClick={onSignOut} className="mt-2 flex w-full items-center gap-3 px-3 py-2 text-sm text-muted-foreground" data-testid="button-admin-signout"><LogOut size={16} />Sign out</button></div>
     </aside>
     <div className="md:pl-60">
-      <header className="flex h-[72px] items-center justify-between border-b border-foreground/10 px-5 lg:px-9">
+      <header className="flex h-[72px] items-center justify-between border-b border-foreground/20 px-5 lg:px-9">
         <div className="flex items-center gap-3"><button className="md:hidden" onClick={() => show('Use the desktop workspace for full navigation.')} aria-label="Open admin menu" data-testid="button-admin-menu"><Menu size={19} /></button><div><p className="font-mono text-[10px] uppercase tracking-[.18em] text-primary">Admin</p><p className="mt-1 text-sm text-muted-foreground">Signed in as {email}</p></div></div>
         <div className="flex items-center gap-3">{IS_MOCK_MODE && <span className="hidden font-mono text-[10px] text-accent sm:block">Mock data</span>}<span className="grid h-8 w-8 place-items-center rounded-full bg-accent/20 font-mono text-xs text-accent">{email.slice(0, 2).toUpperCase()}</span></div>
       </header>
@@ -145,7 +145,7 @@ function AdminWorkspace({ token, email, onSignOut }: { token: string; email: str
         <div className="mb-8 flex items-end justify-between"><div><h1 className="font-display text-3xl tracking-[-.05em]">{active}</h1><p className="mt-1 text-sm text-muted-foreground">A clear view of the work coming through the site.</p></div></div>
         {active === 'Overview' && <OverviewTab token={token} />}
         {active === 'Leads' && <LeadsTab token={token} />}
-        {active === 'Pages' && <div className="grid gap-3 md:grid-cols-2">{['Home', 'Services', 'Solutions', 'Products', 'About', 'Contact'].map((x) => <div key={x} className="flex items-center justify-between rounded-lg border border-foreground/10 bg-card p-5"><div><p className="font-display text-lg">{x}</p><p className="mt-1 font-mono text-[10px] uppercase tracking-[.12em] text-primary">Published</p></div><button onClick={() => show(`${x} page editing is not available in this workspace yet.`)} className="rounded-md border border-foreground/10 px-3 py-2 text-xs text-muted-foreground hover:border-primary hover:text-primary" data-testid={`button-edit-page-${x.toLowerCase()}`}>Edit</button></div>)}</div>}
+        {active === 'Pages' && <div className="grid gap-3 md:grid-cols-2">{['Home', 'Services', 'Solutions', 'Products', 'About', 'Contact'].map((x) => <div key={x} className="flex items-center justify-between rounded-lg border border-foreground/20 bg-card p-5"><div><p className="font-display text-lg">{x}</p><p className="mt-1 font-mono text-[10px] uppercase tracking-[.12em] text-primary">Published</p></div><button onClick={() => show(`${x} page editing is not available in this workspace yet.`)} className="rounded-md border border-foreground/20 px-3 py-2 text-xs text-muted-foreground hover:border-primary hover:text-primary" data-testid={`button-edit-page-${x.toLowerCase()}`}>Edit</button></div>)}</div>}
       </main>
     </div>
     {notice && <div className="fixed bottom-5 right-5 rounded-md border border-primary/40 bg-card px-4 py-3 text-sm shadow-xl" data-testid="status-admin-notice">{notice}</div>}
@@ -155,7 +155,7 @@ function AdminWorkspace({ token, email, onSignOut }: { token: string; email: str
 // ---- Overview tab ------------------------------------------------------------
 
 function OverviewCardSkeleton() {
-  return <div className="rounded-lg border border-foreground/10 bg-card p-5"><div className="h-4 w-24 animate-pulse rounded bg-foreground/10" /><div className="mt-5 h-8 w-16 animate-pulse rounded bg-foreground/10" /></div>;
+  return <div className="rounded-lg border border-foreground/20 bg-card p-5"><div className="h-4 w-24 animate-pulse rounded bg-foreground/10" /><div className="mt-5 h-8 w-16 animate-pulse rounded bg-foreground/10" /></div>;
 }
 
 function OverviewTab({ token }: { token: string }) {
@@ -189,13 +189,13 @@ function OverviewTab({ token }: { token: string }) {
   return <>
     {error && <p className="mb-4 text-sm text-destructive" role="alert">{error}</p>}
     <div className="mb-4 flex justify-end gap-2">
-      {(['today', '7d', '30d', 'all'] as const).map(r => <button key={r} onClick={() => setRange(r)} className={`rounded-md border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[.1em] ${range === r ? 'border-primary text-primary' : 'border-foreground/10 text-muted-foreground'}`} data-testid={`button-range-${r}`}>{r}</button>)}
+      {(['today', '7d', '30d', 'all'] as const).map(r => <button key={r} onClick={() => setRange(r)} className={`rounded-md border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[.1em] ${range === r ? 'border-primary text-primary' : 'border-foreground/20 text-muted-foreground'}`} data-testid={`button-range-${r}`}>{r}</button>)}
     </div>
     <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-      {loading ? Array.from({ length: 4 }).map((_, i) => <OverviewCardSkeleton key={i} />) : cards.map(({ label, value, Icon }, i) => <div key={label} className="rounded-lg border border-foreground/10 bg-card p-5"><div className="flex items-center justify-between"><span className="text-sm text-muted-foreground">{label}</span><Icon size={16} className={i === 3 ? 'text-accent' : 'text-primary'} /></div><p className="mt-5 font-display text-3xl" data-testid={`text-metric-${label.replace(/\s/g, '-').toLowerCase()}`}>{value}</p></div>)}
+      {loading ? Array.from({ length: 4 }).map((_, i) => <OverviewCardSkeleton key={i} />) : cards.map(({ label, value, Icon }, i) => <div key={label} className="rounded-lg border border-foreground/20 bg-card p-5"><div className="flex items-center justify-between"><span className="text-sm text-muted-foreground">{label}</span><Icon size={16} className={i === 3 ? 'text-accent' : 'text-primary'} /></div><p className="mt-5 font-display text-3xl" data-testid={`text-metric-${label.replace(/\s/g, '-').toLowerCase()}`}>{value}</p></div>)}
     </div>
     <div className="mt-6 grid gap-6 xl:grid-cols-[1.35fr_.65fr]">
-      <div className="rounded-lg border border-foreground/10 bg-card p-5">
+      <div className="rounded-lg border border-foreground/20 bg-card p-5">
         <div><h2 className="font-display text-lg">Page views</h2><p className="mt-1 text-xs text-muted-foreground">Daily page views ({range})</p></div>
         <div className="mt-7 flex h-40 items-end gap-1.5 px-1">
           {loading || !analytics ? <div className="h-full w-full animate-pulse rounded bg-foreground/5" /> : analytics.dailyPageViews.length === 0
@@ -203,7 +203,7 @@ function OverviewTab({ token }: { token: string }) {
             : analytics.dailyPageViews.map((d) => <div key={d.date} title={`${d.date}: ${d.count}`} className="flex-1 rounded-t-sm bg-primary/70 transition-all hover:bg-primary" style={{ height: `${Math.max(4, (d.count / maxDaily) * 100)}%` }} />)}
         </div>
       </div>
-      <div className="rounded-lg border border-foreground/10 bg-card p-5">
+      <div className="rounded-lg border border-foreground/20 bg-card p-5">
         <h2 className="font-display text-lg">Popular pages</h2>
         <p className="mt-1 text-xs text-muted-foreground">By page views ({range})</p>
         <div className="mt-7 space-y-4">
@@ -253,13 +253,13 @@ function LeadsTab({ token }: { token: string }) {
   };
 
   return <div className="grid gap-6 xl:grid-cols-[1.4fr_1fr]">
-    <div className="rounded-lg border border-foreground/10 bg-card">
-      <div className="flex flex-wrap items-center gap-3 border-b border-foreground/10 p-5">
-        <form onSubmit={search} className="flex flex-1 items-center gap-2 rounded-md border border-foreground/10 bg-background px-3 py-2">
+    <div className="rounded-lg border border-foreground/20 bg-card">
+      <div className="flex flex-wrap items-center gap-3 border-b border-foreground/20 p-5">
+        <form onSubmit={search} className="flex flex-1 items-center gap-2 rounded-md border border-foreground/20 bg-background px-3 py-2">
           <Search size={14} className="text-muted-foreground" />
           <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search name, email, company..." className="w-full bg-transparent text-sm outline-none" data-testid="input-lead-search" />
         </form>
-        <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)} className="rounded-md border border-foreground/10 bg-background px-3 py-2 text-xs" data-testid="select-status-filter">
+        <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)} className="rounded-md border border-foreground/20 bg-background px-3 py-2 text-xs" data-testid="select-status-filter">
           <option value="">All statuses</option>
           {LEAD_STATUSES.map(s => <option key={s} value={s}>{s}</option>)}
         </select>
@@ -275,7 +275,7 @@ function LeadsTab({ token }: { token: string }) {
           </button>)}</div>}
     </div>
 
-    <div className="rounded-lg border border-foreground/10 bg-card p-6">
+    <div className="rounded-lg border border-foreground/20 bg-card p-6">
       {!selected ? <p className="text-sm text-muted-foreground">Select a lead to view details.</p> : <div data-testid="panel-lead-detail">
         <h2 className="font-display text-2xl tracking-[-.03em]">{selected.name}</h2>
         <p className="mt-1 text-sm text-muted-foreground">{selected.company || 'No company given'}</p>
@@ -289,7 +289,7 @@ function LeadsTab({ token }: { token: string }) {
           <Row label="Submitted" value={new Date(selected.created_at).toLocaleString()} />
         </div>
         <label className="mt-6 block text-sm text-muted-foreground">Status
-          <select disabled={updating} value={selected.status} onChange={(e) => changeStatus(selected, e.target.value)} className="mt-2 w-full rounded-md border border-foreground/10 bg-background px-3 py-2.5 text-foreground outline-none focus:border-primary" data-testid="select-lead-status">
+          <select disabled={updating} value={selected.status} onChange={(e) => changeStatus(selected, e.target.value)} className="mt-2 w-full rounded-md border border-foreground/20 bg-background px-3 py-2.5 text-foreground outline-none focus:border-primary" data-testid="select-lead-status">
             {LEAD_STATUSES.map(s => <option key={s} value={s}>{s}</option>)}
           </select>
         </label>

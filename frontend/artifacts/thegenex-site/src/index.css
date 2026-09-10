@@ -34,20 +34,20 @@
 
 :root {
   --background: 222 36% 7%;
-  --foreground: 214 32% 92%;
-  --border: 219 24% 20%;
-  --input: 219 24% 20%;
+  --foreground: 214 32% 94%;
+  --border: 219 22% 28%;
+  --input: 219 22% 28%;
   --ring: 178 100% 50%;
-  --card: 222 31% 10%;
-  --card-foreground: 214 32% 92%;
-  --card-border: 219 25% 17%;
+  --card: 222 30% 12%;
+  --card-foreground: 214 32% 94%;
+  --card-border: 219 22% 26%;
   --primary: 177 100% 48%;
   --primary-foreground: 222 36% 7%;
-  --secondary: 219 26% 15%;
-  --secondary-foreground: 214 32% 92%;
-  --muted: 220 22% 14%;
-  --muted-foreground: 216 13% 62%;
-  --accent: 263 82% 68%;
+  --secondary: 219 26% 18%;
+  --secondary-foreground: 214 32% 94%;
+  --muted: 220 22% 16%;
+  --muted-foreground: 216 16% 74%;
+  --accent: 263 82% 72%;
   --accent-foreground: 222 36% 7%;
   --destructive: 0 72% 62%;
   --destructive-foreground: 214 32% 92%;
