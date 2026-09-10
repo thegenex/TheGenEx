@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "theGenEx — AI Automation & Technology Agency"
+description = "A premium, conversion-focused website for theGenEx, an AI automation and technology agency that builds intelligent systems, custom software, and digital products for modern businesses."
+version = "1.0.0"
+id = "artifacts/thegenex-site"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19534
+
+[services.development]
+run = "pnpm --filter @workspace/thegenex-site run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/thegenex-site", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/thegenex-site/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19534"
+BASE_PATH = "/"

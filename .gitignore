@@ -1,0 +1,9 @@
+# Root-level ignore rules. frontend/ has its own nested git repo and .gitignore.
+node_modules/
+.env
+.env.local
+.env.*.local
+*.tsbuildinfo
+dist/
+.DS_Store
+Thumbs.db
