@@ -28,7 +28,7 @@ function isAllowlistedAdmin_(email) {
 
 /** Ensures the seed admin from Script Properties exists in the Admins sheet. */
 function ensureSeedAdmin_() {
-  const seed = normalizeEmail_(getConfig_('SEED_ADMIN_EMAIL', 'infothegenex@gmail.com'));
+  const seed = normalizeEmail_(getConfig_('SEED_ADMIN_EMAIL', ''));
   if (!seed) return;
   const { rows, sheet } = readAllRows_(SHEET_ADMINS);
   const exists = rows.some(function (r) { return normalizeEmail_(r.email) === seed; });

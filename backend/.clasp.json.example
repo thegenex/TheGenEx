@@ -1,0 +1,5 @@
+{
+  "scriptId": "YOUR_APPS_SCRIPT_ID",
+  "rootDir": "",
+  "parentId": "YOUR_GOOGLE_SHEET_ID"
+}

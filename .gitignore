@@ -7,3 +7,6 @@ node_modules/
 dist/
 .DS_Store
 Thumbs.db
+
+# clasp project link (environment-specific, not portable code)
+backend/.clasp.json

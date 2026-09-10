@@ -1,8 +1,10 @@
 /**
  * Code.gs — one-time setup helpers. Run `setupBackend_` once from the Apps
  * Script editor (select the function in the toolbar dropdown and click Run)
- * after configuring Script Properties. It creates all sheets with headers,
- * seeds the Settings sheet, and seeds the initial admin.
+ * after configuring Script Properties (SPREADSHEET_ID, APP_SECRET,
+ * NOTIFICATION_EMAIL, SEED_ADMIN_EMAIL — see Project Settings > Script
+ * Properties). It creates all sheets with headers, seeds the Settings
+ * sheet, and seeds the initial admin.
  *
  * This file intentionally contains no request-handling logic — see Router.gs.
  */
@@ -14,7 +16,7 @@ function setupBackend_() {
   ];
   names.forEach(function (n) { getSheet_(n); });
 
-  seedSettingIfMissing_('notification_email', getConfig_('NOTIFICATION_EMAIL', 'infothegenex@gmail.com'));
+  seedSettingIfMissing_('notification_email', getConfig_('NOTIFICATION_EMAIL', ''));
   seedSettingIfMissing_('company_name', 'theGenEx');
   seedSettingIfMissing_('send_confirmation_email', 'true');
 

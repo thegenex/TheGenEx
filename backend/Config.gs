@@ -91,9 +91,15 @@ function getSpreadsheet_() {
   return SpreadsheetApp.openById(id);
 }
 
-/** Notification email recipient for new leads (falls back to the main inbox). */
+/**
+ * Notification email recipient for new leads. Configured via the Settings
+ * sheet ("notification_email") or the NOTIFICATION_EMAIL Script Property —
+ * see README for setup. No hardcoded fallback: if unset, notification email
+ * sending is skipped (the lead is still saved) rather than silently going
+ * to the wrong inbox.
+ */
 function getNotificationEmail_() {
-  return getSettingOrProperty_('notification_email', 'NOTIFICATION_EMAIL', 'infothegenex@gmail.com');
+  return getSettingOrProperty_('notification_email', 'NOTIFICATION_EMAIL', '');
 }
 
 function getCompanyName_() {

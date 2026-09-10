@@ -7,6 +7,10 @@
 function sendLeadNotificationEmail_(lead) {
   try {
     const to = getNotificationEmail_();
+    if (!to) {
+      console.error('No notification_email configured — skipping lead notification email for lead ' + lead.id);
+      return;
+    }
     const company = getCompanyName_();
     const subject = 'New ' + company + ' Project Enquiry — ' + lead.name;
 
